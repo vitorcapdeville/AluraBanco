@@ -6,6 +6,7 @@
 #include "Conta.h"
 #include "Titular.h"
 #include "Cpf.h"
+#include "Funcionario.h"
 
 using namespace std;
 
@@ -25,6 +26,8 @@ int main()
     ExibeSaldo(outraConta);
     // conversao implicita de string para Cpf
     cout << "Número de contas: " << Conta::pegaNumeroContas() << endl;
+    Funcionario funcionario = Funcionario("Beltrano", Cpf("126.645.077-70"), 1000);
+    cout << "Criei um funcionario com nome " << funcionario.pegaNome() << endl;
     //Titular umTitularInvalido("Ful", "111.111.111-11");
     // Verificacao da conversao implicita -- passa pelo validador de cpf.
     Cpf cpf = string("11111111111");

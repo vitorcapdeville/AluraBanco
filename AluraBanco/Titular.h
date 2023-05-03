@@ -1,17 +1,11 @@
 #pragma once
 #include <string>
 #include "Cpf.h"
+#include "Pessoa.h"
 
-class Titular
+class Titular : public Pessoa
 {
-private:
-	std::string m_nome;
-	Cpf m_cpf;
-
 public:
 	Titular(std::string nome, Cpf cpf);
-	std::string pegaNome() const;
-private:
-	void verificaTamanhoNome();
 };
 
