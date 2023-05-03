@@ -18,16 +18,18 @@ Conta::~Conta()
 }
 
 void Conta::sacar(float valor) {
+    if (valor < 0) {
+        std::cout << "Valor inválido" << std::endl;
+        return;
+    }
+
     if (valor > m_saldo) {
         std::cout.precision(2);
         std::cout << std::fixed;
         std::cout << "Saldo " << m_saldo << " insuficiente para saque de " << valor << std::endl;
         return;
     }
-    else if (valor < 0) {
-        std::cout << "Valor inválido" << std::endl;
-        return;
-    }
+    
     m_saldo -= valor;
 }
 

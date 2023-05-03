@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="AluraBanco.cpp" />
     <ClCompile Include="Conta.cpp" />
+    <ClCompile Include="ContaCorrente.cpp" />
     <ClCompile Include="Cpf.cpp" />
     <ClCompile Include="Funcionario.cpp" />
     <ClCompile Include="Pessoa.cpp" />
@@ -136,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Conta.h" />
+    <ClInclude Include="ContaCorrente.h" />
     <ClInclude Include="Cpf.h" />
     <ClInclude Include="Funcionario.h" />
     <ClInclude Include="Pessoa.h" />

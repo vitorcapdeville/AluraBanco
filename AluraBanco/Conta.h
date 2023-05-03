@@ -10,7 +10,7 @@ private:
 public:
     static int pegaNumeroContas();
 
-private:
+protected:
     std::string m_numero;
     Titular m_titular;
     float m_saldo;
@@ -18,7 +18,7 @@ private:
 public:
     Conta(std::string numero, Titular titular);
     ~Conta();
-    void sacar(float valor);
+    virtual void sacar(float valor);
     void depositar(float valor);
     float pegaSaldo() const;
     std::string pegaTitular() const;

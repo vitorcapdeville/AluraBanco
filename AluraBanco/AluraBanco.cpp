@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "Conta.h"
+#include "ContaCorrente.h"
 #include "Titular.h"
 #include "Cpf.h"
 #include "Funcionario.h"
@@ -14,15 +15,21 @@ void ExibeSaldo(Conta& conta) {
     cout << "O saldo do(a) " << conta.pegaTitular() << " é " << conta.pegaSaldo() << endl;
 }
 
+void RealizaSaque(Conta& conta, float valor) {
+	conta.sacar(valor);
+}
+
 int main()
 {
     Titular titular("Fulano", Cpf("126.645.077-70"));
-    Conta conta("123", titular);
-    conta.depositar(1000);
-    conta.sacar(300);
+    ContaCorrente conta("123", titular);
+    conta.depositar(303);
+    //conta.sacar(300);
+    RealizaSaque(conta, 300);
     ExibeSaldo(conta);
     Conta outraConta("12345", Titular("Ciclano", string("126.645.077-70")));
     outraConta.depositar(5);
+    RealizaSaque(outraConta, 3);
     ExibeSaldo(outraConta);
     // conversao implicita de string para Cpf
     cout << "Número de contas: " << Conta::pegaNumeroContas() << endl;
