@@ -45,7 +45,8 @@ int main()
     ContaPoupanca outraConta("12345", Titular("Ciclano", string("126.645.077-70"), "minhasenhasupersegura"));
     conta += 800;
     outraConta += 800;
-    conta -= 400;
+    outraConta -= 400;
+    conta.transferePara(outraConta, 800);
     cout << conta;
     cout << outraConta;
     cout << "Número de contas: " << Conta::pegaNumeroContas() << endl;

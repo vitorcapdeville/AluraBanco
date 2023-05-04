@@ -17,8 +17,14 @@ protected:
     double m_tarifa = 0;
 
 public:
+    enum ResultadoSaque
+    {
+		SUCESSO,
+		SALDO_INSUFICIENTE,
+		VALOR_INVALIDO
+	};
     virtual ~Conta();
-    void sacar(double valor);
+    ResultadoSaque sacar(double valor);
     void depositar(double valor);
     virtual void operator+=(double valor);
     virtual void operator-=(double valor);

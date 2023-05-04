@@ -17,10 +17,10 @@ Conta::~Conta()
     numeroDeContas--;
 }
 
-void Conta::sacar(double valor) {
+Conta::ResultadoSaque Conta::sacar(double valor) {
     if (valor < 0) {
         std::cout << "Valor inválido" << std::endl;
-        return;
+        return VALOR_INVALIDO;
     }
 
     double tarifa = valor * m_tarifa;
@@ -30,10 +30,11 @@ void Conta::sacar(double valor) {
         std::cout.precision(2);
         std::cout << std::fixed;
         std::cout << "Saldo " << m_saldo << " insuficiente para saque de " << valor << " com tarifa de " << tarifa << std::endl;
-        return;
+        return SALDO_INSUFICIENTE;
     }
     
     m_saldo -= valorPosTarifa;
+    return SUCESSO;
 }
 
 void Conta::depositar(double valor) {

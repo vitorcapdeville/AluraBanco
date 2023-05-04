@@ -9,8 +9,10 @@ ContaCorrente::ContaCorrente(std::string numero, Titular titular) : Conta(numero
 
 void ContaCorrente::transferePara(Conta& destino, double valor)
 {
-	sacar(valor);
-	destino.depositar(valor);
+	ResultadoSaque resultado = sacar(valor);
+	if (resultado == SUCESSO) {
+		destino.depositar(valor);
+	}
 }
 
 void ContaCorrente::operator+=(ContaCorrente& contaOrigem)
