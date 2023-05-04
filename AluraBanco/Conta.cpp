@@ -44,6 +44,10 @@ void Conta::depositar(double valor) {
     m_saldo += valor;
 }
 
+void Conta::operator+=(double valor) {
+	depositar(valor);
+}
+
 double Conta::pegaSaldo() const {
     return m_saldo;
 }

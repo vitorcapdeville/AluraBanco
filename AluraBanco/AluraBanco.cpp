@@ -33,11 +33,10 @@ int main()
     Titular titular("Fulano", Cpf("126.645.077-70"), "minhasenhasegura");
     ContaCorrente conta("123", titular);
     ContaPoupanca outraConta("12345", Titular("Ciclano", string("126.645.077-70"), "minhasenhasupersegura"));
-    conta.depositar(800);
+    conta += 800;
     conta.transferePara(outraConta, 300);
     ExibeSaldo(conta);
     ExibeSaldo(outraConta);
-    // conversao implicita de string para Cpf
     cout << "Número de contas: " << Conta::pegaNumeroContas() << endl;
     Caixa func_caixa = Caixa("Beltrano", Cpf("126.645.077-70"), 1000, DiaDaSemana::QUINTA);
     cout << "Criei um funcionario com nome " << func_caixa.pegaNome() << endl;
