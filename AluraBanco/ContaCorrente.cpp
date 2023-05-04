@@ -12,3 +12,13 @@ void ContaCorrente::transferePara(Conta& destino, double valor)
 	sacar(valor);
 	destino.depositar(valor);
 }
+
+void ContaCorrente::operator+=(ContaCorrente& contaOrigem)
+{
+	contaOrigem.transferePara(*this, contaOrigem.pegaSaldo()/2);
+}
+
+void ContaCorrente::operator-=(ContaCorrente& contaDestino)
+{
+	this->transferePara(contaDestino, this->pegaSaldo() / 2);
+}

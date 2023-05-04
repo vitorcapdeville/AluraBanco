@@ -20,9 +20,11 @@ public:
     virtual ~Conta();
     void sacar(double valor);
     void depositar(double valor);
-    void operator+=(double valor);
+    virtual void operator+=(double valor);
+    virtual void operator-=(double valor);
     double pegaSaldo() const;
     std::string pegaTitular() const;
+    friend std::ostream& operator<<(std::ostream& out, const Conta& conta);
 protected:
     Conta(std::string numero, Titular titular);
 };

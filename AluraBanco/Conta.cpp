@@ -48,6 +48,10 @@ void Conta::operator+=(double valor) {
 	depositar(valor);
 }
 
+void Conta::operator-=(double valor) {
+    sacar(valor);
+}
+
 double Conta::pegaSaldo() const {
     return m_saldo;
 }

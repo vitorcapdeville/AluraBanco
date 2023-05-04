@@ -28,15 +28,26 @@ void FazLogin(Autenticavel& alguem, string senha) {
 		cout << "Senha incorreta" << endl;
 }
 
+ostream& operator<<(ostream & cout, const Conta & conta)
+{
+    Pessoa titular = conta.m_titular;
+    cout << "Conta: " << conta.m_numero << endl;
+    cout << ">>Saldo: " << conta.m_saldo << endl;
+    cout << ">>Titular: " << titular.pegaNome() << endl;
+    cout << ">>tarifa: " << conta.m_tarifa << endl;
+	return cout;
+}
+
 int main()
 {
     Titular titular("Fulano", Cpf("126.645.077-70"), "minhasenhasegura");
     ContaCorrente conta("123", titular);
     ContaPoupanca outraConta("12345", Titular("Ciclano", string("126.645.077-70"), "minhasenhasupersegura"));
     conta += 800;
-    conta.transferePara(outraConta, 300);
-    ExibeSaldo(conta);
-    ExibeSaldo(outraConta);
+    outraConta += 800;
+    conta -= 400;
+    cout << conta;
+    cout << outraConta;
     cout << "Número de contas: " << Conta::pegaNumeroContas() << endl;
     Caixa func_caixa = Caixa("Beltrano", Cpf("126.645.077-70"), 1000, DiaDaSemana::QUINTA);
     cout << "Criei um funcionario com nome " << func_caixa.pegaNome() << endl;
