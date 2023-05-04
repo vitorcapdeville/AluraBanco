@@ -7,6 +7,6 @@ class Gerente final :
     public Funcionario, public Autenticavel
 {
 public:
-    Gerente(std::string nome, Cpf cpf, float salario, std::string senha);
+    Gerente(std::string nome, Cpf cpf, float salario, DiaDaSemana diaDePagamento, std::string senha);
 };
 

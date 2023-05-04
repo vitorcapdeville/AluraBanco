@@ -39,8 +39,10 @@ int main()
     ExibeSaldo(outraConta);
     // conversao implicita de string para Cpf
     cout << "Número de contas: " << Conta::pegaNumeroContas() << endl;
-    Caixa func_caixa = Caixa("Beltrano", Cpf("126.645.077-70"), 1000);
+    Caixa func_caixa = Caixa("Beltrano", Cpf("126.645.077-70"), 1000, DiaDaSemana::QUINTA);
     cout << "Criei um funcionario com nome " << func_caixa.pegaNome() << endl;
+    cout << "Salario: " << func_caixa.pegaSalario() << endl;
+    cout << "Bonus: " << func_caixa.calculaBonus() << endl;
     FazLogin(titular, "erreiasenha");
     FazLogin(titular, "minhasenhasegura");
     //Titular umTitularInvalido("Ful", "111.111.111-11");

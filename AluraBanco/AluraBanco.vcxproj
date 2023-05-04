@@ -146,6 +146,7 @@
     <ClInclude Include="ContaCorrente.h" />
     <ClInclude Include="ContaPoupanca.h" />
     <ClInclude Include="Cpf.h" />
+    <ClInclude Include="DiaDaSemana.h" />
     <ClInclude Include="Funcionario.h" />
     <ClInclude Include="Gerente.h" />
     <ClInclude Include="Pessoa.h" />
