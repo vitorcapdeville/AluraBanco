@@ -4,12 +4,11 @@
 
 ContaCorrente::ContaCorrente(std::string numero, Titular titular) : Conta(numero, titular)
 {
+	m_tarifa = 0.05;
 }
 
-void ContaCorrente::sacar(float valor)
+void ContaCorrente::transferePara(Conta& destino, double valor)
 {
-	float tarifa = valor * 0.01;
-	float valorPosTarifa = valor + tarifa;
-
-	Conta::sacar(valorPosTarifa);
+	sacar(valor);
+	destino.depositar(valor);
 }

@@ -5,9 +5,11 @@
 #include <string>
 #include "Conta.h"
 #include "ContaCorrente.h"
+#include "ContaPoupanca.h"
 #include "Titular.h"
 #include "Cpf.h"
 #include "Funcionario.h"
+#include "Caixa.h"
 
 using namespace std;
 
@@ -19,22 +21,28 @@ void RealizaSaque(Conta& conta, float valor) {
 	conta.sacar(valor);
 }
 
+void FazLogin(Autenticavel& alguem, string senha) {
+    if (alguem.autentica(senha))
+		cout << "Login realizado com sucesso" << endl;
+	else
+		cout << "Senha incorreta" << endl;
+}
+
 int main()
 {
-    Titular titular("Fulano", Cpf("126.645.077-70"));
+    Titular titular("Fulano", Cpf("126.645.077-70"), "minhasenhasegura");
     ContaCorrente conta("123", titular);
-    conta.depositar(303);
-    //conta.sacar(300);
-    RealizaSaque(conta, 300);
+    ContaPoupanca outraConta("12345", Titular("Ciclano", string("126.645.077-70"), "minhasenhasupersegura"));
+    conta.depositar(800);
+    conta.transferePara(outraConta, 300);
     ExibeSaldo(conta);
-    Conta outraConta("12345", Titular("Ciclano", string("126.645.077-70")));
-    outraConta.depositar(5);
-    RealizaSaque(outraConta, 3);
     ExibeSaldo(outraConta);
     // conversao implicita de string para Cpf
     cout << "Número de contas: " << Conta::pegaNumeroContas() << endl;
-    Funcionario funcionario = Funcionario("Beltrano", Cpf("126.645.077-70"), 1000);
-    cout << "Criei um funcionario com nome " << funcionario.pegaNome() << endl;
+    Caixa func_caixa = Caixa("Beltrano", Cpf("126.645.077-70"), 1000);
+    cout << "Criei um funcionario com nome " << func_caixa.pegaNome() << endl;
+    FazLogin(titular, "erreiasenha");
+    FazLogin(titular, "minhasenhasegura");
     //Titular umTitularInvalido("Ful", "111.111.111-11");
     // Verificacao da conversao implicita -- passa pelo validador de cpf.
     Cpf cpf = string("11111111111");

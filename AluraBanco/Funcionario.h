@@ -4,11 +4,13 @@
 
 class Funcionario : public Pessoa
 {
-private:
-	float m_salario;
+protected:
+	double m_salario;
+	double m_multiplo;
 
 public:
+	double calculaBonus() const;
+protected:
 	Funcionario(std::string nome, Cpf cpf, float salario);
-	float pegaSalario() const;
 };
 

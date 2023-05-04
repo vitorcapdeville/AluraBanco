@@ -17,23 +17,26 @@ Conta::~Conta()
     numeroDeContas--;
 }
 
-void Conta::sacar(float valor) {
+void Conta::sacar(double valor) {
     if (valor < 0) {
         std::cout << "Valor inválido" << std::endl;
         return;
     }
 
-    if (valor > m_saldo) {
+    double tarifa = valor * m_tarifa;
+    double valorPosTarifa = valor + tarifa;
+
+    if (valorPosTarifa > m_saldo) {
         std::cout.precision(2);
         std::cout << std::fixed;
-        std::cout << "Saldo " << m_saldo << " insuficiente para saque de " << valor << std::endl;
+        std::cout << "Saldo " << m_saldo << " insuficiente para saque de " << valor << " com tarifa de " << tarifa << std::endl;
         return;
     }
     
-    m_saldo -= valor;
+    m_saldo -= valorPosTarifa;
 }
 
-void Conta::depositar(float valor) {
+void Conta::depositar(double valor) {
     if (valor < 0) {
         std::cout << "Valor inválido" << std::endl;
         return;
@@ -41,7 +44,7 @@ void Conta::depositar(float valor) {
     m_saldo += valor;
 }
 
-float Conta::pegaSaldo() const {
+double Conta::pegaSaldo() const {
     return m_saldo;
 }
 

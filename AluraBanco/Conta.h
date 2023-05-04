@@ -1,6 +1,6 @@
 #pragma once
 #include <string>
-#include "TItular.h"
+#include "Titular.h"
 
 class Conta
 {
@@ -13,13 +13,15 @@ public:
 protected:
     std::string m_numero;
     Titular m_titular;
-    float m_saldo;
+    double m_saldo;
+    double m_tarifa = 0;
 
 public:
-    Conta(std::string numero, Titular titular);
-    ~Conta();
-    virtual void sacar(float valor);
-    void depositar(float valor);
-    float pegaSaldo() const;
+    virtual ~Conta();
+    void sacar(double valor);
+    void depositar(double valor);
+    double pegaSaldo() const;
     std::string pegaTitular() const;
+protected:
+    Conta(std::string numero, Titular titular);
 };

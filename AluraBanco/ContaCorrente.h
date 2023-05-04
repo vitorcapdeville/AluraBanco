@@ -2,11 +2,11 @@
 #include "Conta.h"
 #include <string>
 
-class ContaCorrente :
+class ContaCorrente final :
     public Conta
 {
 public:
     ContaCorrente(std::string numero, Titular titular);
-    void sacar(float valor) override;
+    void transferePara(Conta& destino, double valor);
 };
 
